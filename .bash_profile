@@ -44,5 +44,8 @@ fi
 # fi
 
 PS1="[\t] \W $ "
+DATA="/cygdrive/f/"
+
 cd "$USERPROFILE"
+
 alias qqq="cmd /C taskkill /F /IM mintty.exe"
