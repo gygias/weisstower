@@ -48,4 +48,6 @@ DATA="/cygdrive/f/"
 
 cd "$USERPROFILE"
 
-alias qqq="cmd /C taskkill /F /IM mintty.exe"
+alias qqq="/cygdrive/c/Windows/system32/cmd /C taskkill /F /IM mintty.exe"
+alias open="/usr/bin/cygstart"
+alias ditto="cp"
