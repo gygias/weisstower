@@ -46,6 +46,7 @@ fi
 PS1="[\t] \u@\h \W\$ "
 DATA="/cygdrive/f/"
 DVD="/cygdrive/e/"
+PATH="$PATH:$HOME/bin"
 
 cd "$USERPROFILE"
 
@@ -53,3 +54,4 @@ alias qqq="/cygdrive/c/Windows/system32/cmd /C taskkill /F /IM mintty.exe"
 alias open="/usr/bin/cygstart"
 alias ditto="cp"
 alias sb="cd \"$USERPROFILE/sandbox\""
+alias mbp="ssh -l david 10.0.1.4"

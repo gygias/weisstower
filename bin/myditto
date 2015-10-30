@@ -1,0 +1,63 @@
+#!/bin/bash
+
+CP_SRCSUFFIX=""
+
+if [[ $# > 3 ]]; then
+    echo error: too many arguments, or wildcard used
+    exit 1
+fi
+
+CP_ARGS="-a"
+CP_SRCIDX=1
+if [[ $1 == -* ]]; then
+    CP_ARGS="${CP_ARGS}${1:1}"
+    CP_SRC="$2"
+    CP_DST="$3"
+    CP_SRCIDX=2
+else
+    CP_SRC="$1"
+    CP_DST="$2"
+fi
+
+# i am terrible with bash
+#echo "h ${CP_SRC:$i:1}"
+#echo "a ${CP_ARGS}"
+#let CP_SRCLEN=$#-CP_SRCIDX
+#echo "l " $# "$CP_SRCLEN"
+#ARGS=$@
+#CP_SRCS=("${ARGS[@]:CP_SRCIDX:CP_SRCIDX}")
+#echo "i $CP_SRCIDX,$CP_SRCLEN"
+
+if [[ ! -e "$CP_SRC" ]]; then
+    echo error: source does not exist
+    exit 1
+elif [[ -f "$CP_SRC" ]]; then
+    echo error: source not directory, or wildcard used
+    exit 1
+elif [[ -f "$CP_DST" ]]; then
+    echo error: destination is regular file
+    exit 1
+fi
+
+CP_PUSHDST=false
+if [[ -d "$CP_SRC" ]]; then
+    if [[ ! -e "$CP_DST" ]]; then
+	/usr/bin/echo creating "$CP_DST"
+	/usr/bin/mkdir -p "$CP_DST"
+	/usr/bin/chmod --reference "$CP_SRC" "$CP_DST"
+	CP_PUSHDST=true
+    fi
+    
+    CP_SRCSUFFIX="*"
+fi
+
+#CP_CMD=(/usr/bin/cp $CP_ARGS "\"${CP_SRC}\"${CP_SRCSUFFIX}" "\"${CP_DST}\"")
+CP_CMD="/usr/bin/cp $CP_ARGS \"${CP_SRC}\"${CP_SRCSUFFIX} \"${CP_DST}\""
+/usr/bin/echo "${CP_CMD[@]}"
+#"${CP_CMD[@]}"
+/bin/bash -c "$CP_CMD"
+
+if [[ ! $CP_CMD && $CP_PUSHDST ]]; then
+    echo cp failed, deleting dst
+    /usr/bin/rm -rf "$CP_DST"
+fi
