@@ -43,7 +43,7 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 
-PS1="[\t] \W $ "
+PS1="[\t] \u@\h \W\$ "
 DATA="/cygdrive/f/"
 
 cd "$USERPROFILE"
