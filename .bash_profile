@@ -43,15 +43,21 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 
+# built-in
 PS1="[\t] \u@\h \W\$ "
-DATA="/cygdrive/f/"
-DVD="/cygdrive/e/"
 PATH="$PATH:$HOME/bin"
+
+data="/cygdrive/f/"
+dvd="/cygdrive/e/"
+pf="/cygdrive/c/Program Files (x86)"
+pf64="/cygdrive/c/Program Files"
 
 cd "$USERPROFILE"
 
 alias qqq="/cygdrive/c/Windows/system32/cmd /C taskkill /F /IM mintty.exe"
-alias open="/usr/bin/cygstart"
+alias open="/usr/bin/cygstart" # emulates mac os open
 alias ditto="cp"
 alias sb="cd \"$USERPROFILE/sandbox\""
 alias mbp="ssh -l david 10.0.1.4"
+alias pf="cd \"$pf\""
+alias pf64="cd \"$pf64\""
