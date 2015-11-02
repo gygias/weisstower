@@ -61,3 +61,15 @@ alias sb="cd \"$USERPROFILE/sandbox\""
 alias mbp="ssh -l david 10.0.1.4"
 alias pf="cd \"$pf\""
 alias pf64="cd \"$pf64\""
+
+if [[ ! -e /Volumes/c ]]; then
+    mkdir -p /Volumes
+    cd /Volumes
+    ln -s /cygdrive/c
+    ln -s c Windows
+    ln -s /cygdrive/f
+    ln -s f Data
+    ln -s /cygdrive/x
+    ln -s /cygdrive/q
+    ln -s /cygdrive/z
+fi
