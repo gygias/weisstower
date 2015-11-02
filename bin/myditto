@@ -19,15 +19,6 @@ else
     CP_DST="$2"
 fi
 
-# i am terrible with bash
-#echo "h ${CP_SRC:$i:1}"
-#echo "a ${CP_ARGS}"
-#let CP_SRCLEN=$#-CP_SRCIDX
-#echo "l " $# "$CP_SRCLEN"
-#ARGS=$@
-#CP_SRCS=("${ARGS[@]:CP_SRCIDX:CP_SRCIDX}")
-#echo "i $CP_SRCIDX,$CP_SRCLEN"
-
 if [[ ! -e "$CP_SRC" ]]; then
     echo error: source does not exist
     exit 1
