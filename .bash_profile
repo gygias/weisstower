@@ -56,13 +56,13 @@ cd "$USERPROFILE"
 
 alias qqq="/cygdrive/c/Windows/system32/cmd /C taskkill /F /IM mintty.exe"
 alias open="/usr/bin/cygstart" # emulates mac os open
-alias ditto="cp"
 alias sb="cd \"$USERPROFILE/sandbox\""
 alias rmbp="ssh -l david 10.0.1.4"
 alias pf="cd \"$pf\""
 alias pf64="cd \"$pf64\""
 
 if [[ ! -e /Volumes/c ]]; then
+    echo Creating /Volume links...
     mkdir -p /Volumes
     cd /Volumes
     ln -s /cygdrive/c
