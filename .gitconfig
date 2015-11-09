@@ -1,0 +1,7 @@
+[user]
+	email = gygias@users.noreply.github.com
+	name = gygias
+[core]
+	editor = emacs
+[credential]
+	helper = cache --timeout=3600
